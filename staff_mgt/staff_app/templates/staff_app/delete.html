@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body class='container'>
+    <h1 class='display-4 text-primary'>{{title}}</h1>
+    <p class='text-danger'>※以下のコードを削除します。</p>
+    <table class='table'>
+        <tr><th>ID</th><td>{{obj.id}}</td></tr>
+        <tr><th>Name</th><td>{{obj.name}}</td></tr>
+        <tr><th>Email</th><td>{{obj.email}}</td></tr>
+        <tr><th>Gender</th><td>
+        {% if obj.gender == 0 %}♂{% endif %}
+        {% if obj.gender == 1 %}♀{% endif %}</td></tr>
+        <form action="{% url 'delete' id %}"method="post">
+        {% csrf_token %}
+            <tr><th></th><td>
+                <input type="submit" value="click" class='btn btn-primary'>
+            </td></tr>
+        </form>
+    </table>
+</body>
+</html>
