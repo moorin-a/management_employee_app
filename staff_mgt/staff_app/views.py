@@ -7,7 +7,7 @@ from .models import Staff
 def index(request):
 	data = Staff.objects.all()
 	params = {
-		'title': '社員管理',
+		'title': 'メンバー管理',
 		'data': data,
 	}
 	return render(request, 'staff_app/index.html', params)
@@ -15,7 +15,7 @@ def index(request):
 # create mode
 def create(request):
 	params = {
-		'title': '社員管理',
+		'title': 'メンバー管理',
 		'form' : StaffForm()
 	}
 	if (request.method=='POST'):
@@ -33,7 +33,7 @@ def edit(request, num):
 		person.save()
 		return redirect(to='/staff')
 	params = {
-		'title': '社員管理',
+		'title': 'メンバー管理',
 		'id': num,
 		'form': StaffForm(instance=obj)
 	}
@@ -45,7 +45,7 @@ def delete(request, num):
 		person.delete()
 		return redirect(to='/staff')
 	params = {
-		'title': '社員管理',
+		'title': 'メンバー管理',
 		'id': num,
 		'obj': person
 	}
